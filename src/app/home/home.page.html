@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title text-center>Pokedex</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-virtual-scroll [items]="pokemons">
+        <ion-item *virtualItem="let pokemon; let i = index;" detail="true" (click)="pagePokemon(i+1)">
+            <ion-avatar slot="start">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ i + 1 }}.png">
+            </ion-avatar>
+            <ion-label>{{ pokemon.name | titlecase }}</ion-label>
+        </ion-item>
+     </ion-virtual-scroll>      
+      <!-- <ion-note slot="end">1 items</ion-note> -->  
+  </ion-list>
+</ion-content>
